@@ -1,0 +1,119 @@
+variables:
+  SONAR_SERVER: "http://sonar.cae.com"
+  
+image: maven:3-jdk-8
+
+# 定义stages, 分为五大阶段: 提交, 验收测试, 手工测试, 非功能性测试, 发布
+stages:
+  - commit
+  - acceptance_test
+  - manual_test
+  - nfr_test
+  - release
+
+cache:
+  key: "$CI_BUILD_NAME_$CI_BUILD_REF_NAME"
+  untracked: true
+
+# 开启 maven .m2 cache, 提高构建速度
+before_script:
+  - wget https://gitlab.cae.com/cqrd/nexus/raw/master/settings.xml -O ~/.m2/settings.xml
+  - mkdir -p /cache/.m2/repository   
+  - ln -s /cache/.m2/repository /root/.m2/repository
+
+# 1.提交阶段
+job_PKG:
+  stage: commit
+  only:
+    - triggers
+  script:
+    - echo "[INFO]提交阶段"
+    - cd src/pipeline
+    - ls /builds/sysrd/a380/src/pipeline/target/sonar
+    - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dmaven.test.failure.ignore=true
+    - mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.0:sonar -Dsonar.host.url=$SONAR_SERVER
+    - ls /builds/sysrd/a380/src/pipeline/target/sonar
+    - mvn clean package -Dmaven.test.skip=true -U
+    - echo "I'm a commit job [by push]"
+
+
+# 1.提交阶段
+job_PKG:
+  stage: commit
+  script:
+    - echo "[INFO]提交阶段"
+    - cd src/pipeline
+    # - mvn test
+    - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dmaven.test.failure.ignore=true
+    # - mvn sonar:sonar
+    - mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar -Dsonar.host.url=$SONAR_SERVER
+    - mvn clean package -Dmaven.test.skip=true -U
+    - echo "I'm a commit job [by push]"
+
+# 2.验收测试阶段, 推荐BDD, 如:Cucumber, Concordion, Fitnesse等, 关键在于客户&产品&开发&测试&运维共同编写和维护实例化需求
+job_ACT:
+  stage: acceptance_test
+  only:
+    - triggers
+  script:
+    - echo "[INFO]验收测试阶段"
+
+# 3.手工测试阶段, 通常添加when: manual条件以提供手工确认
+job_MAT:
+  stage: manual_test
+  only:
+    - triggers
+  environment:
+    name: MAT_EVR
+    url: http://pipeline_mat.cae.com
+  when: manual
+  script:
+    - echo "[INFO]手工测试阶段"
+
+# 4.非功能性测试阶段, 包括安全测试和性能测试两大类
+# 4.1 安全测试
+job_SCT:
+  stage: nfr_test
+  only:
+    - triggers
+  environment:
+    name: SCT_EVR
+    url: http://pipeline_sct.cae.com
+  script:
+    - echo "[INFO]非功能测试阶段-安全测试"
+    
+# 4.2 性能测试, 集成gatling
+job_PET:
+  stage: nfr_test
+  only:
+    - triggers
+  environment:
+    name: PET_EVR
+    url: http://pipeline_pet.cae.com
+  script:
+    - echo "[INFO]非功能测试阶段-性能测试"
+    - echo "性能测试"
+
+# 5.发布阶段, 传统部署方式用ssh, 容器部署方式用docker
+job_REL:
+  stage: release
+  only:
+    - tags
+  image: docker:1.12
+  services:
+    - registry.cae.com/hefei/docker:1.12-dind
+  environment:
+    name: PRD_EVR
+    url: http://pipeline.cqdc.com
+  dependencies:
+    - job_PKG
+  before_script:
+    - export DOCKER_HOST='tcp://registry.cae.com__hefei__docker:2375'     
+    - docker info
+  script:
+    - echo "[INFO]发布阶段"
+    - docker build -t $DOCKER_HUB/weiyi/pipeline:$CI_BUILD_TAG .
+    - docker tag $DOCKER_HUB/weiyi/pipeline:$CI_BUILD_TAG $DOCKER_HUB/weiyi/pipeline:$CI_BUILD_TAG
+    - docker login -u $DOCKER_USER -p $DOCKER_PSWD $DOCKER_HUB
+    - docker push $DOCKER_HUB/weiyi/pipeline:$CI_BUILD_TAG
+    - curl -H "Authorization":"$DOCKER_TOKEN" -d "name=$DOCKER_HUB/weiyi/pipeline&tag=$CI_BUILD_TAG" $CAE_API
