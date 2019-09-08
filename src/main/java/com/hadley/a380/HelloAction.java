@@ -26,5 +26,9 @@ public class HelloAction {
 		}
 		return "40C";
 	}
+	
+	public static void main(String []args) {
+	    System.out.println("Hello world by eclipse che 6.x!");
+	}
 
 }
