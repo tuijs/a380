@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="24" failures="0" name="com.hadley.a380.CucumberTest" time="0.045" errors="0" skipped="8">
+  <properties>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.171-b11"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="/projects/a380"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/projects/a380"/>
+    <property name="java.runtime.version" value="1.8.0_171-8u171-b11-0ubuntu0.16.04.1-b11"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/home/user/apache-maven-3.3.9/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="4.15.0-55-generic"/>
+    <property name="user.home" value="/home/user"/>
+    <property name="user.timezone" value="Etc/UTC"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="user.name" value="user"/>
+    <property name="java.class.path" value="/home/user/apache-maven-3.3.9/boot/plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/usr/lib/jvm/java-8-openjdk-amd64/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher package"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_171"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/home/user/apache-maven-3.3.9"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.security.egd" value="file:/dev/./urandom"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase classname="| name1 | pwd1 |" name="Given 输入用户名: name1" time="0.002"/>
+  <testcase classname="| name1 | pwd1 |" name="And 输入密码: pwd1" time="0"/>
+  <testcase classname="| name1 | pwd1 |" name="When 点击登录" time="0"/>
+  <testcase classname="| name1 | pwd1 |" name="Then 登录成功" time="0"/>
+  <testcase classname="| name1 | pwd1 |" name="| name1 | pwd1 |" time="0"/>
+  <testcase classname="| name2 | pwd2 |" name="Given 输入用户名: name2" time="0"/>
+  <testcase classname="| name2 | pwd2 |" name="And 输入密码: pwd2" time="0"/>
+  <testcase classname="| name2 | pwd2 |" name="When 点击登录" time="0"/>
+  <testcase classname="| name2 | pwd2 |" name="Then 登录成功" time="0"/>
+  <testcase classname="| name2 | pwd2 |" name="| name2 | pwd2 |" time="0"/>
+  <testcase classname="Scenario: 登录失败测试（无参数）" name="Given 输入用户名: name3" time="0"/>
+  <testcase classname="Scenario: 登录失败测试（无参数）" name="And 输入密码: pwd3" time="0"/>
+  <testcase classname="Scenario: 登录失败测试（无参数）" name="When 点击登录" time="0"/>
+  <testcase classname="Scenario: 登录失败测试（无参数）" name="Scenario: 登录失败测试（无参数）" time="0"/>
+  <testcase classname="| 3 | 1 | 2 |" name="假设我的任务清单里有3个任务" time="0">
+    <skipped/>
+    <system-out>
+  Scenario: 登录失败测试（无参数） &amp;#27;[90m# login.feature:14&amp;#27;[0m
+    &amp;#27;[32mGiven &amp;#27;[0m&amp;#27;[32m输入用户名: &amp;#27;[0m&amp;#27;[32m&amp;#27;[1mname3&amp;#27;[0m  &amp;#27;[90m# LoginTest.输入用户名(String)&amp;#27;[0m
+    &amp;#27;[32mAnd &amp;#27;[0m&amp;#27;[32m输入密码: &amp;#27;[0m&amp;#27;[32m&amp;#27;[1mpwd3&amp;#27;[0m      &amp;#27;[90m# LoginTest.输入密码(String)&amp;#27;[0m
+    &amp;#27;[32mWhen &amp;#27;[0m&amp;#27;[32m点击登录&amp;#27;[0m           &amp;#27;[90m# LoginTest.点击登陆()&amp;#27;[0m
+#language: zh-CN
+功能: 任务管理
+
+  场景大纲: 完成任务             &amp;#27;[90m# todo.feature:4&amp;#27;[0m
+    &amp;#27;[36m假设&amp;#27;[0m&amp;#27;[36m我的任务清单里有&lt;total&gt;个任务&amp;#27;[0m
+    &amp;#27;[36m当&amp;#27;[0m&amp;#27;[36m我完成&lt;finished&gt;件任务之后&amp;#27;[0m
+    &amp;#27;[36m那么&amp;#27;[0m&amp;#27;[36m我还剩下&lt;left&gt;件未完成的任务&amp;#27;[0m
+
+    例子: 
+</system-out>
+  </testcase>
+  <testcase classname="| 3 | 1 | 2 |" name="当我完成1件任务之后" time="0">
+    <skipped/>
+  </testcase>
+  <testcase classname="| 3 | 1 | 2 |" name="那么我还剩下2件未完成的任务" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase classname="| 3 | 1 | 2 |" name="| 3 | 1 | 2 |" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase classname="| 3 | 1 | 2 |" name="| 3 | 1 | 2 |" time="0.001"/>
+  <testcase classname="| 5 | 1 | 4 |" name="假设我的任务清单里有5个任务" time="0.008">
+    <skipped/>
+    <system-out>
+  场景大纲: 完成任务       &amp;#27;[90m# todo.feature:11&amp;#27;[0m
+    &amp;#27;[33m假设&amp;#27;[0m&amp;#27;[33m我的任务清单里有3个任务&amp;#27;[0m
+    &amp;#27;[33m当&amp;#27;[0m&amp;#27;[33m我完成1件任务之后&amp;#27;[0m
+    &amp;#27;[33m那么&amp;#27;[0m&amp;#27;[33m我还剩下2件未完成的任务&amp;#27;[0m
+</system-out>
+  </testcase>
+  <testcase classname="| 5 | 1 | 4 |" name="当我完成1件任务之后" time="0.008">
+    <skipped/>
+  </testcase>
+  <testcase classname="| 5 | 1 | 4 |" name="那么我还剩下4件未完成的任务" time="0.008">
+    <skipped/>
+  </testcase>
+  <testcase classname="| 5 | 1 | 4 |" name="| 5 | 1 | 4 |" time="0.008">
+    <skipped/>
+  </testcase>
+  <testcase classname="| 5 | 1 | 4 |" name="| 5 | 1 | 4 |" time="0.008"/>
+</testsuite>
